@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    padding: 55px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px silver solid;
+    border-radius: 5px;
+}
+
+.card img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-title {
+    text-align: start;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+.ingredientes {
+    text-align: center;
+    padding: 5px;
+}
+
+.btn {
+    padding: 10px;
+}
+
+.btn1 {
+    margin-right: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn1:hover {
+    color: #FFF;
+    background-color: #202020;
+}
+
+.btn2 {
+    margin-left: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #202020;
+    border: 1px #202020 solid;
+    color: #FFF;
+}

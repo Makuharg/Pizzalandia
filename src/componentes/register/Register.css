@@ -1,0 +1,23 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.iniciarSesion {
+    text-align: center;
+}
+
+.iniciarSesion a {
+    color: rgb(155, 200, 215);
+}
+
+.iniciarSesion a:hover {
+    text-decoration: underline;
+}

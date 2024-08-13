@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #202020;
+    color: #FFF;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+
+}
+
+.left ul {
+    display: flex;
+    margin: 0 10px;
+}
+
+.left ul li {
+    list-style-type: none;
+    padding: 0 10px;
+    margin-top: 1px;
+}
+
+.left ul li a:hover {
+    background-color: #FFF;
+    color: #202020;
+    border-radius: 5px;
+}
+
+a {
+    color: #FFF;
+    padding: 5px;
+}

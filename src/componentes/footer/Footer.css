@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #202020;
+    height: 8.4vh;
+    color: #FFF;
+    text-align: center;
+    line-height: 8.4vh;
+}
