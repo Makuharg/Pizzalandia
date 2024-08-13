@@ -20,17 +20,20 @@ const Login = () => {
             return
         }  else if (contraseña.length < 6) {
             setError3(true)
+            setError1(false)
             return
         }  else if (mail != email || contraseña != password){
             setError2(true)
+            setError1(false)
+            setError3(false)
             return 
         }  else {
-            alert("Ingresaste correctamente")
             setMail("")
             setContraseña("")
             setError1(false)
             setError2(false)
             setError3(false)
+            alert("Ingresaste correctamente")
         }
     }
 

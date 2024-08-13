@@ -18,19 +18,23 @@ const Register = () => {
             return
         }  else if (contra.length < 6) {
             setError2(true)
+            setError1(false)
             return
         } else if (contra != confirm) {
             setError3(true)
+            setError1(false)
+            setError2(false)
             return
         }   else {
-            alert("Registro exitoso")
             setEmail("")
             setContra("")
             setConfirm("")
+            setError1(false); 
+            setError2(false); 
+            setError3(false);
+            alert("Registro exitoso")
         }
-        setError1(false); 
-        setError2(false); 
-        setError3(false);
+
     }
 
 
