@@ -21,6 +21,7 @@ h1 {
 
 .product-list ul {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 20px;
     gap: 20px 60px;

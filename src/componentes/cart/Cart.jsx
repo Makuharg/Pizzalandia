@@ -73,7 +73,7 @@ const Cart = () => {
                   <img src={pizza.img} alt={pizza.name} className="pizza-image" width={"300px"}/>
                   <div className="pizza-details">
                     <h2>{pizza.name}</h2>
-                    <p>${pizza.price}</p>
+                    <p>${(pizza.price).toLocaleString()}</p>
                     <div className="quantity-controls">
                       <button onClick={() => eliminarDelCarrito(pizza)}>-</button>
                       <span>
@@ -97,8 +97,8 @@ const Cart = () => {
                       <img src={pizza.img} alt="" width={"150px"}/>
                     {pizza.quantity > 0 ? (
                       <p>
-                        {pizza.name} (${pizza.price}) x {pizza.quantity} = $
-                        {pizza.price * pizza.quantity}
+                        {pizza.name} (${pizza.price.toLocaleString()}) x {pizza.quantity} = $
+                        {(pizza.price * pizza.quantity).toLocaleString()}
                       </p>
                     ) : null}
                   </div>
@@ -108,7 +108,7 @@ const Cart = () => {
               ))}
             </ul>
             <div className="total">
-              <h2>Total: ${total}</h2>
+              <h2>Total: ${total.toLocaleString()}</h2>
               <button onClick={()=> vaciarCarrito()}>Limpiar carrito</button>
               <button>Pagar el total</button>
             </div>
