@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 
 const Navbar = () => {
-    const total = 25000;
+    const [active, setActive] = useState(false)
+
+    
     const token = false;
   return (
     <nav>
@@ -22,7 +24,7 @@ const Navbar = () => {
             }  
         </div>
         <div className='right'>
-            <a href="#">🛒Total: </a>${total.toLocaleString()}
+            <a href="#" onClick={()=> setActive(!active)}>🛒Total: </a>$
         </div>
     </nav>
   )

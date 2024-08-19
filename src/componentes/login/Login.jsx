@@ -59,22 +59,22 @@ const Login = () => {
                 <div className='username'>
                     <label>Nombre de usuario</label> 
                     <input 
-                    type="email"
-                    placeholder='Ingresa tu mail' 
-                    name='mail'
-                    onChange={datosInput}
-                    value={mail}
+                        type="email"
+                        placeholder='Ingresa tu mail' 
+                        name='mail'
+                        onChange={datosInput}
+                        value={mail}
                     />
                     
                 </div> 
                 <div className='contraseña'>
                     <label>Contraseña</label>
                     <input 
-                    type="password" 
-                    placeholder='Ingresa tu contraseña'
-                    name='contraseña'
-                    onChange={datosInput}
-                    value={contraseña}
+                        type="password" 
+                        placeholder='Ingresa tu contraseña'
+                        name='contraseña'
+                        onChange={datosInput}
+                        value={contraseña}
                     />
                     
                 </div>

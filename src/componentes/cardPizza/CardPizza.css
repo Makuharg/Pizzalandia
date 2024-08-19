@@ -5,9 +5,11 @@
 }
 
 main {
-    padding: 55px;
+    padding: 45px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 30px;
 }
 
 .card {
@@ -15,17 +17,14 @@ main {
     flex-direction: column;
     align-items: center;
     border: 1px silver solid;
-    border-radius: 5px;
+    border-radius: 5px; 
+    width: 27%;
 }
 
 .card img {
-    width: 400px;
+    width: 100%;
     height: 300px;
     object-fit: cover;
-}
-
-.card-title {
-    text-align: start;
 }
 
 .card h3 {
@@ -33,18 +32,34 @@ main {
     padding: 10px;
 }
 
+.desc {
+    padding: 5px 20px;
+    text-align: justify;
+}
+
 .ingredientes {
     text-align: center;
     padding: 5px;
 }
 
+.ingr ul {
+    display: flex;
+    gap: 20px;
+}
+
+.ingr ul li {
+    list-style: none;
+}
+
 .btn {
     padding: 10px;
+    display: flex;
+    gap: 150px;
 }
 
 .btn1 {
-    margin-right: 50px;
-    padding: 5px;
+
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -55,8 +70,8 @@ main {
 }
 
 .btn2 {
-    margin-left: 50px;
-    padding: 5px;
+
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     background-color: #202020;
