@@ -1,0 +1,64 @@
+main {
+    padding: 50px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 35%;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.datos {
+    width: 35%;
+    padding: 40px 20px;
+    border: 1px solid silver;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.datos h3 {
+    padding: 10px;
+    text-align: center;
+}
+
+.datos p {
+    padding: 20px;
+    text-align: justify;
+}
+
+.datos ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.datos ul li {
+    list-style: none;
+    display: flex;
+    
+}
+
+.precio {
+    margin-top: 20px;
+    color: green;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;  
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(195, 48, 48);
+    border-radius: 5px;
+    align-content: flex-end;
+    cursor: pointer;
+    color: #FFF;
+}
