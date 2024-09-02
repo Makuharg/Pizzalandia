@@ -1,0 +1,13 @@
+.container {
+    background-color: #545454;
+}
+
+.notFound {
+    height: 81.1vh;
+    background-image: url("../../assets/img/notFound.png");
+    background-size: cover;
+    background-position: 50% 43%; /*respecto a body*/
+    background-repeat: no-repeat;
+    background-color: #545454;
+}
+

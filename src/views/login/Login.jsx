@@ -1,6 +1,7 @@
 import React from 'react'
 import './Login.css'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const email = "academialatam@gmail.com"
@@ -49,7 +50,7 @@ const Login = () => {
 
 
   return (
-    <main>
+    <main className='main-form'>
         <div className='form'>
             <h1>Inicio de sesion</h1>
             {error1 ? <h2>Debes completar todos los campos</h2> : null}
@@ -79,8 +80,8 @@ const Login = () => {
                     
                 </div>
                 <p className='recordar'>¿Olvido su contraseña?</p>
-                <button type="submit">Iniciar Sesion</button>
-                <p className='registrarse'>Quiero <a href="#">registrarme</a></p>
+                <button type="submit" className='button-login'>Iniciar Sesion</button>
+                <p className='registrarse'>Quiero<Link to="/register"><a href="#">registrarme</a></Link></p>
             </form>
         </div>
     </main>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Navbar.css'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [active, setActive] = useState(false)
@@ -9,22 +10,22 @@ const Navbar = () => {
   return (
     <nav>
         <div className='left'>
-            <h3>Pizzería Mamma Mia!</h3>
+            <Link to="/"><h3>Pizzería Mamma Mia!</h3></Link>
             {token?
                 <ul>
-                    <li><a href="#">🍕Home</a></li>
-                    <li><a href="#">🔓Profile</a></li>
-                    <li><a href="#">🔒Logout</a></li>
+                    <Link to="/"><li><a href="#">🍕Home</a></li></Link>
+                    <Link to="/profile"><li><a href="#">🔓Profile</a></li></Link>
+                    <Link to="/"><li><a href="#">🔒Logout</a></li></Link>                                             
                 </ul>:
                 <ul>
-                    <li><a href="#">🍕Home</a></li>
-                    <li><a href="#">🔐Login</a></li>
-                    <li><a href="#">🔐Register</a></li>
+                    <Link to="/"><li><a href="#">🍕Home</a></li></Link>
+                    <Link to="/login"><li><a href="#">🔐Login</a></li></Link>
+                    <Link to="/register"><li><a href="#">🔐Register</a></li></Link>                                                           
                 </ul>
             }  
         </div>
         <div className='right'>
-            <a href="#" onClick={()=> setActive(!active)}>🛒Total: </a>$
+            <Link to="/cart"><a href="#" onClick={()=> setActive(!active)}>🛒Total: </a>$</Link>            
         </div>
     </nav>
   )

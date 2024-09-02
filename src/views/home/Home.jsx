@@ -3,6 +3,7 @@ import Header from '../header/Header'
 import CardPizza from '../cardPizza/CardPizza'
 
 
+
 const Home = ({agregarAlCarrito}) => {
   const [pizzas, setPizzas] = useState([])
 
@@ -21,9 +22,11 @@ const Home = ({agregarAlCarrito}) => {
   return (
     <>
     <Header></Header>
-    <main>
-      {pizzas.map((pizzas)=> <CardPizza key={`ID Principal: ${pizzas.id}`} pizzas={pizzas} agregarAlCarrito={agregarAlCarrito}/>)}
-    </main>
+    
+      <main>     
+        {pizzas.map((pizzas)=> <CardPizza key={`ID Principal: ${pizzas.id}`} pizzas={pizzas} agregarAlCarrito={agregarAlCarrito}/>)}               
+      </main>
+      
     </>
   )
 }

@@ -18,7 +18,7 @@ const Pizza = () => {
   }
 
   return (
-    <main>
+    <main className='main-pizza'>
       <section id={pizza.id}>
         <img src={pizza.img} alt="#" />
         <div className='datos'>
@@ -29,7 +29,7 @@ const Pizza = () => {
           </ul>
           <h3 className='precio'>Precio: {pizza.price}</h3>
           <div className='btn'>
-            <button>Añadir</button>
+            <button className='button-pizza'>Añadir</button>
           </div>
         </div>
       </section>           

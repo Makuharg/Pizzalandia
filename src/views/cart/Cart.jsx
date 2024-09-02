@@ -63,8 +63,8 @@ const Cart = () => {
 
   return (
     
-      <main className="cart">
-        <section>
+      <main className="main">
+        <section className='section-left-cart'>
           <h1>Lista de pizzas</h1>
           <div className='product-list'>
             <ul>
@@ -87,7 +87,7 @@ const Cart = () => {
             </ul>
           </div>
         </section>
-        <section>
+        <section className='section-right-cart'>
           <h1>Carrito de compras</h1>
           <div className='cart-list'>
             <ul>
@@ -107,7 +107,7 @@ const Cart = () => {
                 </li>
               ))}
             </ul>
-            <div className="total">
+            <div className="totalCart">
               <h2>Total: ${total.toLocaleString()}</h2>
               <button onClick={()=> vaciarCarrito()}>Limpiar carrito</button>
               <button>Pagar el total</button>

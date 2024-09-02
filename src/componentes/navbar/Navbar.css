@@ -12,6 +12,7 @@ nav {
     padding: 10px;
     background-color: #202020;
     color: #FFF;
+    height: 6vh;
 }
 
 .left {
@@ -40,4 +41,10 @@ nav {
 a {
     color: #FFF;
     padding: 5px;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

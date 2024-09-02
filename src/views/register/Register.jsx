@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Register.css'
+import { Link } from 'react-router-dom'
 
 const Register = () => {
     const [email, setEmail] = useState("")
@@ -54,8 +55,8 @@ const Register = () => {
     } 
 
   return (
-    <main>
-        <div className='form'>
+    <main className='main-register'>
+        <div className='form-register'>
             <h1>Registro</h1>
 
                 {error1 ? <h2>Complete todos los campos</h2> : null}
@@ -93,8 +94,8 @@ const Register = () => {
                     value={confirm}
                 />
                 </div>
-                <button type='submit'>Registrarse</button>
-                <p className='iniciarSesion'>Quiero <a href="#">iniciar sesion</a></p>
+                <button type='submit' className='button-register'>Registrarse</button>
+                <p className='iniciarSesion'>Quiero<Link to="/login"><a href="#">iniciar sesion</a></Link></p>
             </form>
         </div>
     </main>

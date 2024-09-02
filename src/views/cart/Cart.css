@@ -1,13 +1,13 @@
-main {
+.main {
     display: flex;
     justify-content: space-around;
 }
 
-section {
+.section-left-cart {
     width: 50%;
 }
 
-h1 {
+.section-left-cart h1 {
     padding: 20px;
     text-align: center;
 }
@@ -40,7 +40,7 @@ h1 {
     align-items: center;
 }
 
-.total {
+.totalCart {
     display: flex;
     justify-content: center;
     flex-direction: column;

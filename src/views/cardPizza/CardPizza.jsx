@@ -1,5 +1,7 @@
 import React from 'react'
 import './CardPizza.css'
+import Pizza from '../pizza/Pizza'
+import { Link } from "react-router-dom"
 
 
 const CardPizza = ({pizzas, agregarAlCarrito}) => {
@@ -15,7 +17,7 @@ const CardPizza = ({pizzas, agregarAlCarrito}) => {
             </div>
             <h3>Precio: ${pizzas.price}</h3>
             <div className='btn'>
-                <button className='btn1' type='submit'>Ver Más👀</button>
+                <Link to="/pizza"><button className='btn1' type='submit'>Ver Más👀</button></Link>
                 <button className='btn2' type='submit' onClick={()=> agregarAlCarrito(pizzas.id)}>Añadir🛒</button>
             </div>
         </div>

@@ -58,10 +58,12 @@ main {
 }
 
 .btn1 {
-
+    display: flex;
+    align-items: center;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    color: #202020;
 }
 
 .btn1:hover {
@@ -70,8 +72,9 @@ main {
 }
 
 .btn2 {
-
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     background-color: #202020;
