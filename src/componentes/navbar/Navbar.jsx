@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import { Link } from "react-router-dom";
+import NewCart from '../../views/newCart/NewCart';
+import { useCart } from '../../hooks/useCart';
 
 const Navbar = () => {
     const [active, setActive] = useState(false)
 
-    
+    // Importamos el valor total del carrito del cartContext
+    const { total } = useCart()
+   
     const token = false;
   return (
     <nav>
@@ -25,7 +29,8 @@ const Navbar = () => {
             }  
         </div>
         <div className='right'>
-            <Link to="/cart"><a href="#" onClick={()=> setActive(!active)}>🛒Total: </a>$</Link>            
+            <p>${total}</p>
+            <NewCart></NewCart>          
         </div>
     </nav>
   )

@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './CardPizza.css'
-import Pizza from '../pizza/Pizza'
 import { Link } from "react-router-dom"
+import { AddToCartIcon } from '../icons/Icons'
+import { useCart } from '../../hooks/useCart'
+import { PizzasContext } from '../../context/Context'
 
 
-const CardPizza = ({pizzas, agregarAlCarrito}) => {
-    const ingredientes = pizzas.ingredients   
+const CardPizza = ({pizzas}) => {
+    
+    const { price } = useContext(PizzasContext)
+    const { addToCart } = useCart()
+    const ingredientes = pizzas.ingredients
+     
   return (
         <div className="card">
             <img src={pizzas.img} alt="pizza" />
@@ -15,10 +21,10 @@ const CardPizza = ({pizzas, agregarAlCarrito}) => {
                 <p className='ingredientes'><strong>Ingredientes</strong>:</p>
                 <ul>{ingredientes.map((ingre, index)=> <li key={index}>{ingre}</li>)}</ul>
             </div>
-            <h3>Precio: ${pizzas.price}</h3>
+            <h3>Precio: ${price}</h3>
             <div className='btn'>
                 <Link to="/pizza"><button className='btn1' type='submit'>Ver Más👀</button></Link>
-                <button className='btn2' type='submit' onClick={()=> agregarAlCarrito(pizzas.id)}>Añadir🛒</button>
+                <button className='btn2' type='submit' onClick={()=> addToCart(pizzas)}>Añadir<AddToCartIcon /></button>
             </div>
         </div>
   )

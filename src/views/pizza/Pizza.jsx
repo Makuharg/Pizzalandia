@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from 'react'
 import './pizza.css'
-
+import { useCart } from '../../hooks/useCart';
+import { useContext } from 'react';
+import { PizzasContext } from '../../context/Context';
 
 const Pizza = () => {
-  const [pizza, setPizza] = useState({});
   
+  const { addToCart } = useCart()
 
-  useEffect(() => {
-    getApi();
-  }, [])
+  const { pizza, price } = useContext(PizzasContext)
   
-
-  const getApi = async () => {
-    const res = await fetch("http://localhost:5000/api/pizzas/p001");
-    const pizza = await res.json();
-    setPizza(pizza);
-  }
-
   return (
     <main className='main-pizza'>
       <section id={pizza.id}>
@@ -27,9 +19,9 @@ const Pizza = () => {
           <ul>
             🍕{pizza.ingredients?.join(" 🍕")}        
           </ul>
-          <h3 className='precio'>Precio: {pizza.price}</h3>
+          <h3 className='precio'>Precio: {price}</h3>
           <div className='btn'>
-            <button className='button-pizza'>Añadir</button>
+            <button className='button-pizza' onClick={()=> addToCart(pizza)}>Añadir</button>
           </div>
         </div>
       </section>           
