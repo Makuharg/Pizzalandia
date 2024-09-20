@@ -15,32 +15,33 @@ nav {
     height: 6vh;
 }
 
-.left {
+nav .left h3 {
+    color: #FFF;
+}
+
+nav .left {
     display: flex;
     align-items: center;
 
 }
 
-.left ul {
+nav .left ul {
     display: flex;
     margin: 0 10px;
+    
 }
 
-.left ul li {
+nav .left ul li {
     list-style-type: none;
-    padding: 0 10px;
+    padding: 6px 8px;
+    color: #FFF;
     margin-top: 1px;
 }
 
-.left ul li a:hover {
+nav .left ul li a:hover {
     background-color: #FFF;
     color: #202020;
     border-radius: 5px;
-}
-
-a {
-    color: #FFF;
-    padding: 5px;
 }
 
 .right {
@@ -51,4 +52,16 @@ a {
 
 .right p {
     margin-right: 50px;
+}
+
+.active {
+    background-color: #FFF;
+    color: #202020;
+    border-radius: 5px;
+    padding: 6px 8px;
+}
+
+.notActive {
+    color: #fff;
+    padding: 6px 8px;
 }

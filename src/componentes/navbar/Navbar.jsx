@@ -1,30 +1,36 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import './Navbar.css'
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import NewCart from '../../views/newCart/NewCart';
 import { useCart } from '../../hooks/useCart';
+import { MyUserContext } from '../../context/UserContext';
 
 const Navbar = () => {
-    const [active, setActive] = useState(false)
+
+    const isActive = ({isActive}) => (isActive ? 'active' : 'notActive');
 
     // Importamos el valor total del carrito del cartContext
     const { total } = useCart()
+    const { token, setToken } = useContext(MyUserContext)
+
+    const onClickHandler = ()=> {
+        setToken(false);
+    }
    
-    const token = false;
   return (
     <nav>
         <div className='left'>
             <Link to="/"><h3>Pizzería Mamma Mia!</h3></Link>
             {token?
                 <ul>
-                    <Link to="/"><li><a href="#">🍕Home</a></li></Link>
-                    <Link to="/profile"><li><a href="#">🔓Profile</a></li></Link>
-                    <Link to="/"><li><a href="#">🔒Logout</a></li></Link>                                             
+                    <li><NavLink to="/" className={isActive}>🍕Home</NavLink></li>
+                    <li><NavLink to="/profile" className={isActive}>🔓Profile</NavLink></li>
+                    <li><NavLink to="/logout" className={isActive} onClick={onClickHandler}>🔒Logout</NavLink></li>                                             
                 </ul>:
                 <ul>
-                    <Link to="/"><li><a href="#">🍕Home</a></li></Link>
-                    <Link to="/login"><li><a href="#">🔐Login</a></li></Link>
-                    <Link to="/register"><li><a href="#">🔐Register</a></li></Link>                                                           
+                    <li><NavLink to="/" className={isActive}>🍕Home</NavLink></li>
+                    <li><NavLink to="/login" className={isActive}>🔐Login</NavLink></li>
+                    <li><NavLink to="/register" className={isActive}>🔐Register</NavLink></li>                                                          
                 </ul>
             }  
         </div>

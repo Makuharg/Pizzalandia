@@ -1,11 +1,14 @@
-import React, { useId } from 'react'
+import React, { useContext, useId } from 'react'
 import { CartIcon, ClearCartIcon } from '../icons/Icons';
 import './NewCart.css'
 import { useCart } from '../../hooks/useCart';
+import { MyUserContext } from '../../context/UserContext';
 
 
 const NewCart = () => {
     const cartCheckboxId = useId();
+
+    const { token } = useContext(MyUserContext)
 
     const { cart, clearCart, addToCart, updateQuantity, total }  = useCart()
 
@@ -50,9 +53,11 @@ const NewCart = () => {
                 <p className='total-cart'>Total: ${total}</p>
                 <button onClick={clearCart} className='clear-cart'>
                     <ClearCartIcon />
-                </button>
-                
+                </button>               
             </div>
+            {
+                token ? <button>Ir a pagar</button> : ""
+            }
         </aside>
     </>
   )

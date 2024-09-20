@@ -7,7 +7,6 @@ export const PizzasContext = createContext()
 
 const PizzasProvider = ({ children }) => {
       const [pizzas, setPizzas] = useState([]);
-      const [pizza, setPizza] = useState({});
 
       //Obtener api de las pizzas para el home
       const getPizzas = async ()=> {
@@ -19,22 +18,9 @@ const PizzasProvider = ({ children }) => {
       useEffect(() => {
         getPizzas();
       }, [])
-
-      //Obtener api de las pizzas para el boton "ver mas"
-      const getPizza = async () => {
-        const res = await fetch("http://localhost:5000/api/pizzas/p001");
-        const pizza = await res.json();
-        setPizza(pizza);
-      }
-   
-      useEffect(() => {
-        getPizza();
-      }, [])
     
-      const price = new Intl.NumberFormat().format(pizza.price)
-  
     return (
-        <PizzasContext.Provider value={{ pizzas, setPizzas, pizza, setPizza, price }}>
+        <PizzasContext.Provider value={{ pizzas, setPizzas }}>
             {children}
         </PizzasContext.Provider>
     );

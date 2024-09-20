@@ -1,5 +1,5 @@
 import './App.css'
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import Navbar from "./componentes/navbar/Navbar"
 import Home from './views/home/Home'
 import Footer from './componentes/footer/Footer'
@@ -10,42 +10,31 @@ import NotFound from './views/notFound/NotFound'
 import Profile from './views/profile/Profile'
 import PizzasProvider from './context/Context'
 import { CartProvider } from './context/Cart/'
+import { MyUserContext } from './context/UserContext'
+import LogOut from './views/logout/LogOut'
+import { useContext, useState } from 'react'
 
 function App() {
 
+  const {token}  = useContext(MyUserContext)
+  
   return (
-    <CartProvider>
-      <PizzasProvider>
-        <Navbar />
-          <Routes>
-            <Route 
-            path='/'
-            element={<Home />}
-            />
-            <Route 
-            path='/login'
-            element={<Login />}
-            />
-            <Route 
-            path='/register'
-            element={<Register />}
-            />
-            <Route 
-            path='/pizza'
-            element={<Pizza />}
-            />
-            <Route 
-            path='*'
-            element={<NotFound />}
-            />
-            <Route 
-            path='/profile'
-            element={<Profile />}
-            />
-          </Routes>
-        <Footer />
-      </PizzasProvider>
-    </CartProvider>
+
+      <CartProvider>
+        <PizzasProvider>
+          <Navbar />
+            <Routes>
+              <Route path='/' element={<Home />}/>
+              <Route path='/login' element={token? <Navigate to="/" /> : <Login />}/>
+              <Route path='/register' element={token? <Navigate to="/" /> : <Register />}/>
+              <Route path='/pizza/:id' element={<Pizza />}/>
+              <Route path='*' element={<NotFound />}/>
+              <Route path='/profile' element={token? <Profile /> : <Navigate to="/login" />}/>
+              <Route path='/logout' element={token? <LogOut /> : <Navigate to="/"/>}/>
+            </Routes>
+          <Footer />
+        </PizzasProvider>
+      </CartProvider>
   )
 }
 
