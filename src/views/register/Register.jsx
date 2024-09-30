@@ -1,41 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Register.css'
 import { Link } from 'react-router-dom'
+import { MyUserContext } from '../../context/UserContext'
 
 const Register = () => {
-    const [email, setEmail] = useState("")
-    const [contra, setContra] = useState("")
-    const [confirm, setConfirm] = useState("")
+    const [confirm, setConfirm] = useState('')
 
-    const [error1, setError1] = useState(false)
-    const [error2, setError2] = useState(false)
-    const [error3, setError3] = useState(false)
+    const { email, password, setEmail, setPassword, getRegister } = useContext(MyUserContext)
 
     const submitButton = (event) => {
         event.preventDefault()
-        
-        if (email.trim() === '' || contra.trim() === '' || confirm.trim() === '') {
-            setError1(true)
-            return
-        }  else if (contra.length < 6) {
-            setError2(true)
-            setError1(false)
-            return
-        } else if (contra != confirm) {
-            setError3(true)
-            setError1(false)
-            setError2(false)
-            return
-        }   else {
-            setEmail("")
-            setContra("")
-            setConfirm("")
-            setError1(false); 
-            setError2(false); 
-            setError3(false);
-            alert("Registro exitoso")
-        }
+        getRegister()
 
+        if (password != confirm) {
+            return alert("Las contraseñas no coinciden")
+        } 
     }
 
 
@@ -46,7 +25,7 @@ const Register = () => {
 
     const contraseñaInput = ({target}) => {
         const {value} = target
-        setContra(value);
+        setPassword(value);
     }  
 
     const confirmInput = ({target}) => {
@@ -54,14 +33,13 @@ const Register = () => {
         setConfirm(value);
     } 
 
+
+
   return (
     <main className='main-register'>
         <div className='form-register'>
             <h1>Registro</h1>
 
-                {error1 ? <h2>Complete todos los campos</h2> : null}
-                {error2 ? <h2>La contraseña debe tener al menos 6 digitos</h2> : null}
-                {error3 ? <h2>Las contraseñas no coinciden</h2> : null}
 
             <form onSubmit={submitButton}>
                 <div className='username'>
@@ -81,7 +59,7 @@ const Register = () => {
                     placeholder='Ingrese su contraseña'
                     name='contraseña'
                     onChange={contraseñaInput}
-                    value={contra}
+                    value={password}
                     />
                 </div>
                 <div className='contraseña'>
@@ -95,7 +73,7 @@ const Register = () => {
                 />
                 </div>
                 <button type='submit' className='button-register'>Registrarse</button>
-                <p className='iniciarSesion'>Quiero<Link to="/login"><a href="#">iniciar sesion</a></Link></p>
+                <p className='iniciarSesion'>Quiero <Link to="/login"><a href="#">iniciar sesion</a></Link></p>
             </form>
         </div>
     </main>

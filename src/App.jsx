@@ -12,11 +12,11 @@ import PizzasProvider from './context/Context'
 import { CartProvider } from './context/Cart/'
 import { MyUserContext } from './context/UserContext'
 import LogOut from './views/logout/LogOut'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 
 function App() {
 
-  const {token}  = useContext(MyUserContext)
+  const { user }  = useContext(MyUserContext)
   
   return (
 
@@ -25,12 +25,12 @@ function App() {
           <Navbar />
             <Routes>
               <Route path='/' element={<Home />}/>
-              <Route path='/login' element={token? <Navigate to="/" /> : <Login />}/>
-              <Route path='/register' element={token? <Navigate to="/" /> : <Register />}/>
+              <Route path='/login' element={user? <Navigate to="/" /> : <Login />}/>
+              <Route path='/register' element={user? <Navigate to="/" /> : <Register />}/>
               <Route path='/pizza/:id' element={<Pizza />}/>
               <Route path='*' element={<NotFound />}/>
-              <Route path='/profile' element={token? <Profile /> : <Navigate to="/login" />}/>
-              <Route path='/logout' element={token? <LogOut /> : <Navigate to="/"/>}/>
+              <Route path='/profile' element={user? <Profile /> : <Navigate to="/login" />}/>
+              <Route path='/logout' element={user? <LogOut /> : <Navigate to="/"/>}/>
             </Routes>
           <Footer />
         </PizzasProvider>

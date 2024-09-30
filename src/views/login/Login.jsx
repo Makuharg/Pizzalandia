@@ -1,50 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Login.css'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { MyUserContext } from '../../context/UserContext'
 
 const Login = () => {
-    const email = "academialatam@gmail.com"
-    const password = "AprendiendoReact123"
 
-    const [mail, setMail] = useState('')
-    const [contraseña, setContraseña] = useState('')
-    const [error1, setError1] = useState(false)
-    const [error2, setError2] = useState(false)
-    const [error3, setError3] = useState(false)
+    const { email, setEmail, password, setPassword, getLogin } = useContext(MyUserContext)
 
     const submitButton = (e) => {
         e.preventDefault(e)
-
-        if (mail === "" || contraseña === "") {
-            setError1(true)
-            return
-        }  else if (contraseña.length < 6) {
-            setError3(true)
-            setError1(false)
-            return
-        }  else if (mail != email || contraseña != password){
-            setError2(true)
-            setError1(false)
-            setError3(false)
-            return 
-        }  else {
-            setMail("")
-            setContraseña("")
-            setError1(false)
-            setError2(false)
-            setError3(false)
-            alert("Ingresaste correctamente")
-        }
+        getLogin();
     }
 
     const datosInput = ({target}) => {
         const {value, name} = target
 
         if (name === 'mail') {
-            setMail(value)
+            setEmail(value)
         }   else if (name === 'contraseña') {
-            setContraseña(value)
+            setPassword(value)
         }
     }
 
@@ -53,9 +27,6 @@ const Login = () => {
     <main className='main-form'>
         <div className='form'>
             <h1>Inicio de sesion</h1>
-            {error1 ? <h2>Debes completar todos los campos</h2> : null}
-            {error2 ? <h2>El email y/o contraseña son incorrectos</h2> : null}
-            {error3 ? <h2>La contraseña debe tener mas de 6 digitos</h2> : null}
             <form action="" onSubmit={submitButton}>
                 <div className='username'>
                     <label>Nombre de usuario</label> 
@@ -64,7 +35,7 @@ const Login = () => {
                         placeholder='Ingresa tu mail' 
                         name='mail'
                         onChange={datosInput}
-                        value={mail}
+                        value={email}
                     />
                     
                 </div> 
@@ -75,13 +46,13 @@ const Login = () => {
                         placeholder='Ingresa tu contraseña'
                         name='contraseña'
                         onChange={datosInput}
-                        value={contraseña}
+                        value={password}
                     />
                     
                 </div>
                 <p className='recordar'>¿Olvido su contraseña?</p>
                 <button type="submit" className='button-login'>Iniciar Sesion</button>
-                <p className='registrarse'>Quiero<Link to="/register"><a href="#">registrarme</a></Link></p>
+                <p className='registrarse'>Quiero <Link to="/register"><a href="#">registrarme</a></Link></p>
             </form>
         </div>
     </main>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './Navbar.css'
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import NewCart from '../../views/newCart/NewCart';
 import { useCart } from '../../hooks/useCart';
 import { MyUserContext } from '../../context/UserContext';
@@ -11,17 +11,16 @@ const Navbar = () => {
 
     // Importamos el valor total del carrito del cartContext
     const { total } = useCart()
-    const { token, setToken } = useContext(MyUserContext)
+    const { user, onClickHandler } = useContext(MyUserContext)
+    console.log(user)
 
-    const onClickHandler = ()=> {
-        setToken(false);
-    }
+
    
   return (
     <nav>
         <div className='left'>
             <Link to="/"><h3>Pizzería Mamma Mia!</h3></Link>
-            {token?
+            {user?
                 <ul>
                     <li><NavLink to="/" className={isActive}>🍕Home</NavLink></li>
                     <li><NavLink to="/profile" className={isActive}>🔓Profile</NavLink></li>

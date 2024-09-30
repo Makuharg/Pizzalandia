@@ -8,9 +8,30 @@ import { MyUserContext } from '../../context/UserContext';
 const NewCart = () => {
     const cartCheckboxId = useId();
 
-    const { token } = useContext(MyUserContext)
+    const { user } = useContext(MyUserContext)
+    console.log(user)
+    
 
     const { cart, clearCart, addToCart, updateQuantity, total }  = useCart()
+
+    const onClickCart = () => {
+        clearCart()
+        alert("Compra realizada con éxito")
+    } 
+
+/*     const getCart = async () => {
+        await fetch("http://localhost:5000/api/checkout", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer token_jwt`,
+                },
+            body: JSON.stringify({
+                cart,
+            }),
+        });
+    }
+    getCart(); */
 
     function CartItem (pizzas) {
         return (
@@ -56,7 +77,7 @@ const NewCart = () => {
                 </button>               
             </div>
             {
-                token ? <button>Ir a pagar</button> : ""
+                user ? <button onClick={onClickCart}>Ir a pagar</button> : null
             }
         </aside>
     </>
