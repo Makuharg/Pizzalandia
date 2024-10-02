@@ -4,6 +4,7 @@ export const MyUserContext = createContext();
 
 export const UserContext = ({children}) => {
     const [user, setUser] = useState(null)
+    const [token, setToken] = useState(null)
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -22,7 +23,7 @@ export const UserContext = ({children}) => {
     const data = await res.json();
 
     alert(data?.error || 'Acceso permitido')
-    
+    setToken(data.token)
     localStorage.setItem('token', data.token)
     }
 
@@ -39,23 +40,32 @@ export const UserContext = ({children}) => {
       })
     const data = await res.json();
 
-    alert(data?.error || 'Acceso permitido')
+    if (data.error) {
+      alert(data.error)
+      setToken(false)
+      setUser(false)
+    } else {
+      setToken(data.token);
+      alert("Usuario registrado con exito")
+    }
     
     localStorage.setItem('token', data.token)
     }
 
     useEffect(() => {
-      const token = localStorage.getItem('token')
-    
-      fetch('http://localhost:5000/api/auth/me', {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      })
-      .then((response)=> response.json())
-      .then((data)=> setUser(data))
-      .catch((error)=> console.log(error))
-    }, [])
+      const tokenStorage = localStorage.getItem('token')
+
+      if(tokenStorage) {
+        fetch('http://localhost:5000/api/auth/me', {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        })
+        .then((response)=> response.json())
+        .then((data)=> setUser(data))
+        .catch((error)=> console.log(error))
+      }    
+    }, [token])
 
     const onClickHandler = ()=> {
       setUser(false);
